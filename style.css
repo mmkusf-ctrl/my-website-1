@@ -152,3 +152,48 @@ header {
     font-size: 36px;
   }
 }
+/* PROFILE & ORDERS */
+.profile, .orders {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.profile h2, .orders h2 {
+  margin-bottom: 16px;
+}
+
+/* CART GRID */
+.cart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 20px auto;
+}
+
+.cart-item {
+  background: #fff;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* CART SUMMARY */
+.cart-summary {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.cart-summary h2 {
+  margin-bottom: 16px;
+}
+

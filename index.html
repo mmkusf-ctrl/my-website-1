@@ -33,3 +33,17 @@
     🛒 <span id="cart-count">0</span>
   </a>
 </header>
+
+<script>
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+    document.getElementById('cart-count').textContent = totalQuantity;
+  }
+
+  updateCartCount();
+
+  // Optional: If you add items dynamically, call updateCartCount after adding
+  // For example, in products.html, after adding to cart:
+  // updateCartCount();
+</script>

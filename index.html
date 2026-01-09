@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>sync’d | Luxury Jewelry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -13,165 +13,18 @@
   <div class="overlay"></div>
 
   <div class="hero-content">
-    <img src="logo1.png" alt="sync’d logo" class="logo" />
+    <img src="assets/logo-shell.png" alt="sync’d logo" class="logo" />
 
+    <h1>sync’d</h1>
+    <p class="tagline">…with your beauty</p>
 
     <div class="cta">
-      <a href="products.html?category=necklace" class="btn">NECKLACE</a>
-      <a href="products.html?category=earrings" class="btn">EAR RINGS</a>
-      <a href="products.html?category=bracelet" class="btn">BRACELET</a>
+      <a href="#" class="btn">NECKLACE</a>
+      <a href="#" class="btn">EAR RINGS</a>
+      <a href="#" class="btn">BRACELET</a>
     </div>
   </div>
 </section>
 
 </body>
-<body>
-
-<header class="site-header hero-header">
-  <div class="search-wrapper">
-    <input type="text" placeholder="SEARCH HERE . . ." />
-    <span class="search-icon">🔍</span>
-  </div>
-
-  <div class="header-icons">
-    <a href="account.html" class="icon">👤<span>ACCOUNT</span></a>
-    <a href="cart.html" class="icon">🛒<span>CART</span></a>
-  </div>
-</header>
-
-<section class="hero-home">
-  <div class="hero-center">
-    <img src="BG.jpg" alt="sync’d shell logo" class="hero-shell">
-
-    <div class="hero-buttons">
-      <a href="products.html?category=necklace" class="outline-btn">NECKLACE</a>
-      <a href="products.html?category=earrings" class="outline-btn">EAR RINGS</a>
-      <a href="products.html?category=bracelet" class="outline-btn">BRACELET</a>
-    </div>
-  </div>
-</section>
-
-</body>
-
-
-<script>
-  function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
-    document.getElementById('cart-count').textContent = totalQuantity;
-  }
-
-  updateCartCount();
-
-  // Optional: If you add items dynamically, call updateCartCount after adding
-  // For example, in products.html, after adding to cart:
-  // updateCartCount();
-</script>
-
-<header class="site-header">
-  <img src="assets/logo-shell.png" alt="sync’d logo" class="logo-header">
-
-  <div class="cart-wrapper">
-    <a href="cart.html" class="cart-icon">
-      🛒 <span id="cart-count">0</span>
-    </a>
-
-    <!-- Dropdown preview -->
-    <div id="cart-dropdown" class="cart-dropdown">
-      <h3>Cart Preview</h3>
-      <div id="cart-items-dropdown"></div>
-      <div class="cart-dropdown-footer">
-        <p>Total: $<span id="cart-total-dropdown">0</span></p>
-        <a href="cart.html" class="btn">View Cart</a>
-      </div>
-    </div>
-  </div>
-</header>
-
-<script>
-  const cartWrapper = document.querySelector('.cart-wrapper');
-  const cartDropdown = document.getElementById('cart-dropdown');
-  const cartItemsDropdown = document.getElementById('cart-items-dropdown');
-  const cartTotalDropdown = document.getElementById('cart-total-dropdown');
-  const cartCountSpan = document.getElementById('cart-count');
-
-  // Load cart from localStorage
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-  function updateCartDropdown() {
-    cartItemsDropdown.innerHTML = '';
-    let totalQuantity = 0;
-    let totalSum = 0;
-
-    cart.forEach(item => {
-      totalQuantity += item.quantity;
-      totalSum += item.quantity * item.price;
-
-      const div = document.createElement('div');
-      div.className = 'cart-item-dropdown';
-      div.textContent = `${item.name} x${item.quantity} - $${item.quantity * item.price}`;
-      cartItemsDropdown.appendChild(div);
-    });
-
-    cartTotalDropdown.textContent = totalSum;
-    cartCountSpan.textContent = totalQuantity;
-  }
-
-  // Initial render
-  updateCartDropdown();
-
-  // Toggle dropdown on click
-  cartWrapper.addEventListener('click', (e) => {
-    e.preventDefault();
-    cartDropdown.style.display = cartDropdown.style.display === 'block' ? 'none' : 'block';
-  });
-
-  // Hide dropdown if clicking outside
-  document.addEventListener('click', (e) => {
-    if (!cartWrapper.contains(e.target)) {
-      cartDropdown.style.display = 'none';
-    }
-  });
-
-  // Update cart when adding items (example in products.html)
-  function addToCart(productName, productPrice) {
-    const existing = cart.find(item => item.name === productName);
-    if (existing) {
-      existing.quantity += 1;
-    } else {
-      cart.push({ name: productName, quantity: 1, price: productPrice });
-    }
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartDropdown();
-  }
-
-  // Example: call addToCart() in products.html buttons
-</script>
-
-<body>
-
-<header class="site-header hero-header">
-  <div class="search-wrapper">
-    <input type="text" placeholder="SEARCH HERE . . ." />
-    <span class="search-icon">🔍</span>
-  </div>
-
-  <div class="header-icons">
-    <a href="account.html" class="icon">👤<span>ACCOUNT</span></a>
-    <a href="cart.html" class="icon">🛒<span>CART</span></a>
-  </div>
-</header>
-
-<section class="hero-home">
-  <div class="hero-center">
-    <img src="logo1.png" alt="sync’d shell logo" class="hero-shell">
-
-    <div class="hero-buttons">
-      <a href="products.html?category=necklace" class="outline-btn">NECKLACE</a>
-      <a href="products.html?category=earrings" class="outline-btn">EAR RINGS</a>
-      <a href="products.html?category=bracelet" class="outline-btn">BRACELET</a>
-    </div>
-  </div>
-</section>
-
-</body>
+</html>

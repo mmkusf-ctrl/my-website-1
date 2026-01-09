@@ -1,8 +1,7 @@
 syncd-website/
 │
 ├── index.html
-├── styles.css
-├── assets/
-│   ├── hero-background.jpg
-│   └── logo-shell.png
+├── style.css
+├── hero-background.jpg.jpg
+│   └── logo1.png
 └── README.md

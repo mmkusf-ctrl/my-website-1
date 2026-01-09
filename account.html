@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>sync’d | Account</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <img src="logo1.png" alt="sync’d logo" class="logo-header">
+</header>
+
+<main>
+  <h1>Account Profile</h1>
+
+  <section class="profile">
+    <h2>Profile Info</h2>
+    <p>Name: Jane Doe</p>
+    <p>Email: jane@example.com</p>
+    <p><a href="cart.html" class="btn">View Cart</a></p>
+  </section>
+
+  <section class="orders">
+    <h2>My Orders</h2>
+    <ul id="order-list">
+      <!-- JS will populate orders -->
+    </ul>
+  </section>
+</main>
+
+<script>
+  // Mock order data
+  const orders = [
+    { id: 'ORD001', date: '2026-01-09', items: 2, total: 120 },
+    { id: 'ORD002', date: '2026-01-05', items: 1, total: 60 },
+  ];
+
+  const orderList = document.getElementById('order-list');
+
+  orders.forEach(order => {
+    const li = document.createElement('li');
+    li.textContent = `${order.id} | ${order.date} | Items: ${order.items} | Total: $${order.total}`;
+    orderList.appendChild(li);
+  });
+</script>
+
+</body>
+</html>

@@ -38,18 +38,6 @@ body {
   margin-bottom: 24px;
 }
 
-h1 {
-  font-size: 64px;
-  color: #4a2d1f;
-  letter-spacing: 3px;
-}
-
-.tagline {
-  font-size: 18px;
-  color: #7a5a4a;
-  margin: 12px 0 32px;
-}
-
 /* BUTTONS */
 .cta {
   display: flex;

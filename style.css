@@ -51,12 +51,6 @@ body {
   margin-bottom: 24px;
 }
 
-h1 {
-  font-size: 64px;
-  color: #4a2d1f;
-  letter-spacing: 3px;
-}
-
 /* CTA BUTTONS */
 .cta {
   display: flex;

@@ -1,0 +1,7 @@
+syncd-website/
+│
+├── index.html
+├── styles.css
+├── hero-background.jpg
+    └── logo-shell.png
+└── README.md

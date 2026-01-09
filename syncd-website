@@ -1,9 +1,10 @@
 syncd-website/
 │
 ├── index.html
-├── style.css
-├── hero-background.jpg.jpg
-    └── logo1.png
-account.html
-cart.html
-└── README.md
+├── products.html
+├── account.html        <-- New Account/Profile page
+├── cart.html           <-- New Cart page
+├── styles.css
+└── hero-background.jpg.jpg
+           └── logo1.png
+

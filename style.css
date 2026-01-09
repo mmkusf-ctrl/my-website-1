@@ -317,3 +317,15 @@ header {
   font-size: 14px;
   border-radius: 20px;
 }
+
+.necklace-section {
+  background:
+    linear-gradient(
+      rgba(246, 241, 236, 0.95),
+      rgba(246, 241, 236, 0.95)
+    ),
+    url("NECKBG.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+}

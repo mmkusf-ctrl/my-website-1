@@ -1,63 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>sync’d | Cart</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header>
-  <img src="logo1.png" alt="sync’d logo" class="logo-header">
-</header>
-
-<main>
-  <h1>My Cart</h1>
-  <div class="cart-grid" id="cart-items"></div>
-
-  <div class="cart-summary" id="cart-summary">
-    <!-- Total items, quantity, sum will appear here -->
-  </div>
-</main>
-
 <script>
-  // Mock cart items
-  const cart = [
-    { name: "Necklace 1", quantity: 2, price: 50 },
-    { name: "Earring 1", quantity: 1, price: 30 },
-    { name: "Bracelet 1", quantity: 3, price: 20 },
-  ];
+  // Load cart from localStorage
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
   const cartContainer = document.getElementById('cart-items');
   const cartSummary = document.getElementById('cart-summary');
 
-  let totalItems = 0;
-  let totalQuantity = 0;
-  let totalSum = 0;
+  function renderCart() {
+    cartContainer.innerHTML = '';
+    let totalItems = cart.length;
+    let totalQuantity = 0;
+    let totalSum = 0;
 
-  cart.forEach(item => {
-    totalItems++;
-    totalQuantity += item.quantity;
-    totalSum += item.quantity * item.price;
+    cart.forEach(item => {
+      totalQuantity += item.quantity;
+      totalSum += item.quantity * item.price;
 
-    const div = document.createElement('div');
-    div.className = 'cart-item';
-    div.innerHTML = `
-      <p><strong>${item.name}</strong></p>
-      <p>Quantity: ${item.quantity}</p>
-      <p>Price: $${item.price}</p>
-      <p>Subtotal: $${item.quantity * item.price}</p>
+      const div = document.createElement('div');
+      div.className = 'cart-item';
+      div.innerHTML = `
+        <p><strong>${item.name}</strong></p>
+        <p>Quantity: ${item.quantity}</p>
+        <p>Price: $${item.price}</p>
+        <p>Subtotal: $${item.quantity * item.price}</p>
+        <button class="btn remove-btn">Remove</button>
+      `;
+
+      // Remove item functionality
+      div.querySelector('.remove-btn').addEventListener('click', () => {
+        cart = cart.filter(cartItem => cartItem.name !== item.name);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        renderCart();
+      });
+
+      cartContainer.appendChild(div);
+    });
+
+    cartSummary.innerHTML = `
+      <h2>Cart Summary</h2>
+      <p>Total Items: ${totalItems}</p>
+      <p>Total Quantity: ${totalQuantity}</p>
+      <p>Total Sum: $${totalSum}</p>
+      <button class="btn clear-cart">Clear Cart</button>
     `;
-    cartContainer.appendChild(div);
-  });
 
-  cartSummary.innerHTML = `
-    <h2>Cart Summary</h2>
-    <p>Total Items: ${totalItems}</p>
-    <p>Total Quantity: ${totalQuantity}</p>
-    <p>Total Sum: $${totalSum}</p>
-  `;
+    // Clear cart button
+    cartSummary.querySelector('.clear-cart').addEventListener('click', () => {
+      cart = [];
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    });
+  }
+
+  renderCart();
 </script>
-
-</body>
-</html>

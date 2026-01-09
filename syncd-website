@@ -1,7 +1,12 @@
 syncd-website/
 │
-├── index.html
+├── index.html          (Home)
+├── products.html       (Necklace / Earrings grid)
+├── cart.html           (Shopping cart)
 ├── style.css
-├── hero-background.jpg.jpg
-│   └── logo1.png
-└── README.md
+├── cart.js
+├── products.js
+│
+├── hero-background.jpg
+│    ├── logo1.png
+

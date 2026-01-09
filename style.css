@@ -266,3 +266,54 @@ header {
   align-items: center;
   justify-content: center;
 }
+
+.cart-wrapper {
+  position: relative;
+}
+
+/* Dropdown container */
+.cart-dropdown {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  width: 300px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  padding: 20px;
+  display: none; /* hidden by default */
+  z-index: 1000;
+}
+
+.cart-dropdown h3 {
+  margin-bottom: 12px;
+  font-size: 18px;
+  color: #4a2d1f;
+  text-align: center;
+}
+
+#cart-items-dropdown {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 12px;
+}
+
+.cart-item-dropdown {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #4a2d1f;
+}
+
+.cart-dropdown-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-dropdown-footer .btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 20px;
+}

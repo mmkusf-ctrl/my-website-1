@@ -82,3 +82,66 @@ h1 {
     flex-direction: column;
   }
 }
+
+/* Category Sections */
+.category {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category a {
+  font-size: 3rem;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.4s ease;
+}
+
+.category a:hover {
+  border-color: #fff;
+  transform: scale(1.05);
+}
+
+.bg-necklace {
+  background: url("assets/necklace1.jpg") center/cover;
+}
+
+.bg-earrings {
+  background: url("assets/earrings1.jpg") center/cover;
+}
+
+.bg-bracelet {
+  background: #111;
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+  padding: 40px;
+}
+
+.product-card {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+}
+
+button {
+  background: none;
+  border: 1px solid #000;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}

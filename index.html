@@ -67,3 +67,63 @@
     </div>
   </div>
 </header>
+
+<script>
+  const cartWrapper = document.querySelector('.cart-wrapper');
+  const cartDropdown = document.getElementById('cart-dropdown');
+  const cartItemsDropdown = document.getElementById('cart-items-dropdown');
+  const cartTotalDropdown = document.getElementById('cart-total-dropdown');
+  const cartCountSpan = document.getElementById('cart-count');
+
+  // Load cart from localStorage
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  function updateCartDropdown() {
+    cartItemsDropdown.innerHTML = '';
+    let totalQuantity = 0;
+    let totalSum = 0;
+
+    cart.forEach(item => {
+      totalQuantity += item.quantity;
+      totalSum += item.quantity * item.price;
+
+      const div = document.createElement('div');
+      div.className = 'cart-item-dropdown';
+      div.textContent = `${item.name} x${item.quantity} - $${item.quantity * item.price}`;
+      cartItemsDropdown.appendChild(div);
+    });
+
+    cartTotalDropdown.textContent = totalSum;
+    cartCountSpan.textContent = totalQuantity;
+  }
+
+  // Initial render
+  updateCartDropdown();
+
+  // Toggle dropdown on click
+  cartWrapper.addEventListener('click', (e) => {
+    e.preventDefault();
+    cartDropdown.style.display = cartDropdown.style.display === 'block' ? 'none' : 'block';
+  });
+
+  // Hide dropdown if clicking outside
+  document.addEventListener('click', (e) => {
+    if (!cartWrapper.contains(e.target)) {
+      cartDropdown.style.display = 'none';
+    }
+  });
+
+  // Update cart when adding items (example in products.html)
+  function addToCart(productName, productPrice) {
+    const existing = cart.find(item => item.name === productName);
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      cart.push({ name: productName, quantity: 1, price: productPrice });
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartDropdown();
+  }
+
+  // Example: call addToCart() in products.html buttons
+</script>

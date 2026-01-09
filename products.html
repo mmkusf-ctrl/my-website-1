@@ -7,9 +7,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <header>
-  <img src="logo1.png" alt="sync’d logo" class="logo-header" />
+  <img src="logo1.png" alt="sync’d logo" class="logo-header">
 </header>
 
 <main>
@@ -19,22 +18,48 @@
 
 <script>
   const urlParams = new URLSearchParams(window.location.search);
-  const category = urlParams.get('category');
-  const categoryTitle = category ? category.toUpperCase() : 'PRODUCTS';
-  document.getElementById('category-title').textContent = categoryTitle;
+  const category = urlParams.get('category') || 'product';
+  document.getElementById('category-title').textContent = category.toUpperCase();
 
   const productsContainer = document.getElementById('products');
 
+  // Load cart from localStorage or create new array
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Function to save cart to localStorage
+  function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert("Item added to cart!");
+  }
+
+  // Generate 10 products dynamically
   for (let i = 1; i <= 10; i++) {
+    const productName = `${category} ${i}`;
+    const productPrice = Math.floor(Math.random() * 50) + 20; // random price $20-$70
+
     const div = document.createElement('div');
     div.className = 'product';
     div.innerHTML = `
       <div class="product-image"></div>
-      <p class="product-name">${categoryTitle} ${i}</p>
+      <p class="product-name">${productName}</p>
+      <p class="product-price">$${productPrice}</p>
+      <button class="btn add-to-cart">Add to Cart</button>
     `;
+
+    // Add click event to Add to Cart button
+    div.querySelector('.add-to-cart').addEventListener('click', () => {
+      // Check if product already in cart
+      const existing = cart.find(item => item.name === productName);
+      if (existing) {
+        existing.quantity += 1; // increment quantity
+      } else {
+        cart.push({ name: productName, quantity: 1, price: productPrice });
+      }
+      saveCart();
+    });
+
     productsContainer.appendChild(div);
   }
 </script>
-
 </body>
 </html>

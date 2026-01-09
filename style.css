@@ -197,3 +197,37 @@ header {
   margin-bottom: 16px;
 }
 
+/* Add-to-cart button in products */
+.product .add-to-cart {
+  margin-top: 12px;
+  padding: 10px 20px;
+  border: 1px solid #4a2d1f;
+  background: transparent;
+  color: #4a2d1f;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.product .add-to-cart:hover {
+  background: #4a2d1f;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(74, 45, 31, 0.5);
+}
+
+/* Remove & Clear Cart buttons */
+.remove-btn, .clear-cart {
+  padding: 8px 16px;
+  border: 1px solid #4a2d1f;
+  background: transparent;
+  color: #4a2d1f;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.3s ease;
+}
+
+.remove-btn:hover, .clear-cart:hover {
+  background: #4a2d1f;
+  color: #fff;
+}
